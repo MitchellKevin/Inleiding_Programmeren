@@ -1,5 +1,5 @@
 let kop=document.querySelector("h1")
-let bericht ="Hello world"
+let bericht ="Bedankt!!"
 
 const button= document.querySelector("button")
 
