@@ -165,3 +165,16 @@
       text-align: center;
       margin-top: -5vh;
   }
+
+  /* week 2 */
+  .errorButton{
+    opacity: 0;
+  }
+
+  .number_guess_game{
+    display: flex;
+    justify-content: center;
+  }
+  #minButton{
+    margin-right: 3em;
+  }

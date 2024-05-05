@@ -2,9 +2,12 @@
 // eerste oefening
 let kop=document.querySelector("h1")
 let bericht ="Bedankt!!"
-
+let getal= 0
+const imgPlus=document.querySelector("#plusButton")
+const imgMin=document.querySelector("#minButton")
 const button= document.querySelector("button")
-
+let getalVeld=document.querySelector("p")
+getalVeld.textContent=getal
 function veranderKnopNaam(){
     kop.textContent=bericht
 }
@@ -57,3 +60,24 @@ else{
     }
 }
 button.addEventListener("click",reRoll)
+
+// week 2
+
+function updateGetal(){
+    getalVeld.textContent=getal
+    console.log("getal: " + getal)
+}
+
+function verhoogGetal(){
+    getal= getal+1
+    updateGetal()
+}
+
+function verlaagGetal(){
+    getal=getal-1
+    updateGetal()
+}
+
+imgPlus.addEventListener("click", verhoogGetal)
+imgMin.addEventListener("click", verlaagGetal)
+
