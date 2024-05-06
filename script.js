@@ -5,8 +5,11 @@ let bericht ="Bedankt!!"
 let getal= 0
 const imgPlus=document.querySelector("#plusButton")
 const imgMin=document.querySelector("#minButton")
+const controleer=document.querySelector("#controleer")
 const button= document.querySelector("button")
 let getalVeld=document.querySelector("p")
+mysteryNumber=Math.round(Math.random()*6)
+
 getalVeld.textContent=getal
 function veranderKnopNaam(){
     kop.textContent=bericht
@@ -77,7 +80,20 @@ function verlaagGetal(){
     getal=getal-1
     updateGetal()
 }
+function controleerGetal(){
+    if(getal===mysteryNumber){
+        document.querySelector("h1").textContent="Perfect, je hebt het goed"
+        console.log("Goed gedaan!")
+    }else if(getal>mysteryNumber){
+        document.querySelector("h1").textContent="Helaas, te hoog"
+    }
+    else if(getal<mysteryNumber){
+        document.querySelector("h1").textContent="Helaas, te laag"
+    }
+
+    console.log("Controleert getal")
+}
 
 imgPlus.addEventListener("click", verhoogGetal)
 imgMin.addEventListener("click", verlaagGetal)
-
+controleer.addEventListener("click", controleerGetal)
