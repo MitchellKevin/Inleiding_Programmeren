@@ -97,3 +97,4 @@ function controleerGetal(){
 imgPlus.addEventListener("click", verhoogGetal)
 imgMin.addEventListener("click", verlaagGetal)
 controleer.addEventListener("click", controleerGetal)
+

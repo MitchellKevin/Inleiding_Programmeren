@@ -178,3 +178,30 @@
   #minButton{
     margin-right: 3em;
   }
+
+  /* mario */
+
+  #pane {
+    position: absolute;
+    width: 1520px;
+    height: 540px;
+    border: 2px solid rgb(0, 0, 0);
+  }
+  
+  #mario {
+    position: absolute;
+    top: 140px;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+    transition: all 0.2s;
+  }
+  #mario.large{
+   top: 0px;
+  }
+  #mario.right{
+    right: 1px;
+  }
+  #mario.left{
+    left: 1px;
+  }
