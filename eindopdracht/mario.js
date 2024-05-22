@@ -32,6 +32,12 @@ document.body.onkeyup = function(e) {
       mario.classList.add("large")
       setTimeout(function(){mario.classList.remove("large")}, 500)
       
+    }else if(e.keyCode==39){
+        goRight();
+        mario.classList.add("right")
+    }else if(e.keyCode==37){
+        goLeft();
+      mario.classList.add("left")
     }
   }
   
@@ -40,14 +46,14 @@ var addHit = function() {
     console.log("Spacebar Pressed")
   }
   
-  document.body.onkeyup = function(e) {
-    if( e.keyCode == 39 ) {
-      goRight();
-      mario.classList.add("right")
-      setTimeout(function(){mario.classList.remove("right")}, 500)
+//   document.body.onkeyup = function(e) {
+//     if( e.keyCode == 39 ) {
+//       goRight();
+//       mario.classList.add("right")
+//     //   setTimeout(function(){mario.classList.remove("right")}, 500)
       
-    }
-  }
+//     }
+//   }
   
 var goRight = function() {
     // document.getElementById('mario').height="500";
@@ -55,14 +61,14 @@ var goRight = function() {
   }
   
   
-  document.body.onkeyup = function(e) {
-    if( e.keyCode == 37 ) {
-      goLeft();
-      mario.classList.add("left")
-    //   setTimeout(function(){mario.classList.remove("right")}, 500)
+//   document.body.onkeyup = function(e) {
+//     if( e.keyCode == 37 ) {
+//       goLeft();
+//       mario.classList.add("left")
+//     //   setTimeout(function(){mario.classList.remove("right")}, 500)
       
-    }
-  }
+//     }
+//   }
   
 var goLeft = function() {
     // document.getElementById('mario').height="500";
