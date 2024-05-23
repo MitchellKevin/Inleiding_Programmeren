@@ -1,5 +1,5 @@
 let loca=0
-
+let succes= 1000
 
 var pane = document.querySelector('#pane'),
     mario = document.querySelector('#mario'),
@@ -29,16 +29,18 @@ window.addEventListener("keyup", function(event) { keysPressed[event.which] = fa
 // }, 20);
 
 
-  document.body.onkeyup = function userData(e) {
-      if( e.keyCode == 32 ) {
+  document.body.onkeydown = function userData(e) {
+      if( e.keyCode == 87 ) {
         addHit();
         // mario.classList.add("large")
         // setTimeout(function(){mario.classList.remove("large")}, 500)
         
-      }else if(e.keyCode==39){
+      }else if(e.keyCode==68){
+          mario.classList.add("right")
           goRight();
           // mario.classList.add("right")
-      }else if(e.keyCode==37){
+      }else if(e.keyCode==65){
+          mario.classList.add("left")
           goLeft();
           // mario.classList.add("left")
       }
@@ -62,10 +64,10 @@ var addHit = function() {
 //   }
   
 var goRight = function() {
+    // mario.classList.add("right")
     locaAddRight()
     const test=document.getElementById("mario")
-    test.style.left=loca + 'px'  
-    // mario.classList.add("right")
+    test.style.left=loca + 'px'
     // document.getElementById('mario').height="500";
     console.log("Right pressed")
     // setTimeout(function(){mario.classList.remove("right")}, 500)
@@ -83,11 +85,11 @@ var goRight = function() {
   
 var goLeft = function() {
     // document.getElementById('mario').height="500";
+    // mario.classList.add("left")
     locaAddLeft()
     const test=document.getElementById("mario")
     test.style.left=loca + 'px'
     console.log("Left pressed")
-    // mario.classList.add("left")
     // setTimeout(function(){mario.classList.remove("left")}, 500)
   }
 
@@ -108,3 +110,11 @@ function locaAddRight(){
 var locaGetter=function(){
   console.log("Loca: " + loca)
 }
+
+// if(loca==succes){
+//   restartLoc()
+// }
+
+// function restartLoc(){
+//   loca=loca-1000
+// }

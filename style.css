@@ -202,8 +202,10 @@
    top: 200px;
   }
   #mario.right{
-    left: 550px;
+    transform: scaleX(-1);
   }
   #mario.left{
-    /* left:450px; */
+    transform: scaleX(1);
   }
+
+  
