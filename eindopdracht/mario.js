@@ -98,7 +98,7 @@ var goLeft = function() {
 // function locaGet(){
 //   console.log("Loca: " + loca)
 // }
-
+// https://www.w3schools.com/js/js_htmldom_css.asp
 function locaAddLeft(){
   loca= loca - 20
 }
