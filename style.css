@@ -246,6 +246,22 @@
     top: 400px;
     border: red 5px solid;
   }
+  #pane .enemy1{
+    position: absolute;
+    width: 40px;
+    height: 35px;
+    left: 1255px;
+    top: 437px;
+    border: rgb(230, 0, 255) 5px solid;
+  }
+  #pane .enemy2{
+    position: absolute;
+    width: 40px;
+    height: 35px;
+    left: 390px;
+    top: 437px;
+    border: rgb(230, 0, 255) 5px solid;
+  }
   /* auto|length|cover|contain|initial|inherit */
   #mario {
     position: absolute;
