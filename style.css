@@ -186,22 +186,24 @@
     width: 1520px;
     height: 540px;
     border: 2px solid rgb(0, 0, 0);
+    background-image: url(https://i.pinimg.com/originals/dc/8d/ef/dc8def609c27f9123c4f61a83a3b93bd.jpg);
+    background-size: contain;
   }
-  
+  /* auto|length|cover|contain|initial|inherit */
   #mario {
     position: absolute;
-    top: 140px;
+    top: 355px;
     left: 500px;
     width: 50px;
     height: 50px;
     transition: all 0.2s;
   }
-  #mario.large{
-   top: 0px;
+  #mario.jump{
+   top: 200px;
   }
   #mario.right{
     left: 550px;
   }
   #mario.left{
-    left: 450px;
+    /* left:450px; */
   }
