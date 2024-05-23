@@ -189,6 +189,63 @@
     background-image: url(https://i.pinimg.com/originals/dc/8d/ef/dc8def609c27f9123c4f61a83a3b93bd.jpg);
     background-size: contain;
   }
+
+  #pane .box0{
+    position: absolute;
+    width: 190px;
+    height: 30px;
+    left: 415px;
+    top: 325px;
+    border: red 5px solid;
+  }
+  #pane .box1{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 260px;
+    top: 325px;
+    border: red 5px solid;
+  }
+  #pane .box2{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 490px;
+    top: 170px;
+    border: red 5px solid;
+  }
+  #pane .box3{
+    position: absolute;
+    width: 190px;
+    height: 30px;
+    left: 1276px;
+    top: 326px;
+    border: red 5px solid;
+  }
+  #pane .box4{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 1124px;
+    top: 329px;
+    border: red 5px solid;
+  }
+  #pane .box5{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 1355px;
+    top: 170px;
+    border: red 5px solid;
+  }
+  #pane .box6{
+    position: absolute;
+    width: 70px;
+    height: 75px;
+    left: 725px;
+    top: 400px;
+    border: red 5px solid;
+  }
   /* auto|length|cover|contain|initial|inherit */
   #mario {
     position: absolute;
@@ -208,4 +265,3 @@
     transform: scaleX(1);
   }
 
-  
