@@ -26,24 +26,28 @@ window.addEventListener("keyup", function(event) { keysPressed[event.which] = fa
 //     });
 // }, 20);
 
-document.body.onkeyup = function(e) {
-    if( e.keyCode == 32 ) {
-      addHit();
-      mario.classList.add("large")
-      setTimeout(function(){mario.classList.remove("large")}, 500)
-      
-    }else if(e.keyCode==39){
-        goRight();
-        mario.classList.add("right")
-    }else if(e.keyCode==37){
-        goLeft();
-      mario.classList.add("left")
+
+  document.body.onkeyup = function userData(e) {
+      if( e.keyCode == 32 ) {
+        addHit();
+        // mario.classList.add("large")
+        // setTimeout(function(){mario.classList.remove("large")}, 500)
+        
+      }else if(e.keyCode==39){
+          goRight();
+          // mario.classList.add("right")
+      }else if(e.keyCode==37){
+          goLeft();
+          // mario.classList.add("left")
+      }
     }
-  }
-  
+
+
 var addHit = function() {
     // document.getElementById('mario').height="500";
     console.log("Spacebar Pressed")
+    mario.classList.add("large")
+    setTimeout(function(){mario.classList.remove("large")}, 500)
   }
   
 //   document.body.onkeyup = function(e) {
@@ -56,8 +60,10 @@ var addHit = function() {
 //   }
   
 var goRight = function() {
+    mario.classList.add("right")
     // document.getElementById('mario').height="500";
     console.log("Right pressed")
+    setTimeout(function(){mario.classList.remove("right")}, 500)
   }
   
   
@@ -73,6 +79,8 @@ var goRight = function() {
 var goLeft = function() {
     // document.getElementById('mario').height="500";
     console.log("Left pressed")
+    mario.classList.add("left")
+    setTimeout(function(){mario.classList.remove("left")}, 500)
   }
 
 

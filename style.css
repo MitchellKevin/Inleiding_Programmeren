@@ -191,7 +191,7 @@
   #mario {
     position: absolute;
     top: 140px;
-    left: 0px;
+    left: 500px;
     width: 50px;
     height: 50px;
     transition: all 0.2s;
@@ -200,8 +200,8 @@
    top: 0px;
   }
   #mario.right{
-    right: 1px;
+    left: 550px;
   }
   #mario.left{
-    left: 1px;
+    left: 450px;
   }
