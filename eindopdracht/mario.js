@@ -1,21 +1,26 @@
+let locaMax=1460
+let locaMin=0
 let loca=0
 let succes= 1000
+bomba_1_loca=0
+bomba_2_loca=0
 
-var pane = document.querySelector('#pane'),
-    mario = document.querySelector('#mario'),
-    maxValue = pane.clientWidth - mario.clientWidth,
-    keysPressed = {},
-    distancePerIteration = 5;
 
-function calculateNewValue(oldValue, keyCode1, keyCode2) {
-    var newValue = parseInt(oldValue, 10)
-                   - (keysPressed[keyCode1] ? distancePerIteration : 0)
-                   + (keysPressed[keyCode2] ? distancePerIteration : 0);
-    return newValue < 0 ? 0 : newValue > maxValue ? maxValue : newValue;
-}
+// var pane = document.querySelector('#pane'),
+//     mario = document.querySelector('#mario'),
+//     maxValue = pane.clientWidth - mario.clientWidth,
+//     keysPressed = {},
+//     distancePerIteration = 5;
 
-window.addEventListener("keydown", function(event) { keysPressed[event.which] = true; })
-window.addEventListener("keyup", function(event) { keysPressed[event.which] = false; })
+// function calculateNewValue(oldValue, keyCode1, keyCode2) {
+//     var newValue = parseInt(oldValue, 10)
+//                    - (keysPressed[keyCode1] ? distancePerIteration : 0)
+//                    + (keysPressed[keyCode2] ? distancePerIteration : 0);
+//     return newValue < 0 ? 0 : newValue > maxValue ? maxValue : newValue;
+// }
+
+// window.addEventListener("keydown", function(event) { keysPressed[event.which] = true; })
+// window.addEventListener("keyup", function(event) { keysPressed[event.which] = false; })
 
 // setInterval(function() {
 //     mario.css({
@@ -33,8 +38,7 @@ window.addEventListener("keyup", function(event) { keysPressed[event.which] = fa
       if( e.keyCode == 87 ) {
         addHit();
         // mario.classList.add("large")
-        // setTimeout(function(){mario.classList.remove("large")}, 500)
-        
+        // setTimeout(function(){mario.classList.remove("large")}, 500)      
       }else if(e.keyCode==68){
           mario.classList.add("right")
           setTimeout(function(){mario.classList.remove("left")})
@@ -84,8 +88,6 @@ var goRight = function() {
       
 //     }
 //   }
-// let hs=document.getElementById('h2')
-// hs.textContent("Higscore:"+loca)
 var goLeft = function() {
     // document.getElementById('mario').height="500";
     // mario.classList.add("left")
@@ -112,6 +114,14 @@ function locaAddRight(){
 
 var locaGetter=function(){
   console.log("Loca: " + loca)
+}
+
+function bombaLoca(){
+  for (let i = 0; i < 10; i++) {
+    const bomba_1=document.getElementById("enemy1")
+    bomba_1.style.left=i+'px'
+    console.log(i);
+  }
 }
 
 // if(loca==succes){
