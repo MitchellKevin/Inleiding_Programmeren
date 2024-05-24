@@ -277,9 +277,9 @@
    top: 200px;
   }
   #mario.right{
-    transform: scaleX(-1);
+    transform: scaleX(1);
   }
   #mario.left{
-    transform: scaleX(1);
+    transform: scaleX(-1);
   }
 

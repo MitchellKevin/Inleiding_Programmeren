@@ -37,10 +37,12 @@ window.addEventListener("keyup", function(event) { keysPressed[event.which] = fa
         
       }else if(e.keyCode==68){
           mario.classList.add("right")
+          setTimeout(function(){mario.classList.remove("left")})
           goRight();
           // mario.classList.add("right")
       }else if(e.keyCode==65){
           mario.classList.add("left")
+          setTimeout(function(){mario.classList.remove("right")})
           goLeft();
           // mario.classList.add("left")
       }
@@ -82,7 +84,8 @@ var goRight = function() {
       
 //     }
 //   }
-  
+// let hs=document.getElementById('h2')
+// hs.textContent("Higscore:"+loca)
 var goLeft = function() {
     // document.getElementById('mario').height="500";
     // mario.classList.add("left")
