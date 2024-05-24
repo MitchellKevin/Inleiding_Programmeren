@@ -117,12 +117,14 @@ var locaGetter=function(){
 }
 
 function bombaLoca(){
-  for (let i = 0; i < 10; i++) {
-    const bomba_1=document.getElementById("enemy1")
-    bomba_1.style.left=i+'px'
-    console.log(i);
+  
+  // for (let i = 0; i < 10; i++) {
+  //   const bomba_1=document.getElementById("enemy1")
+  //   stappenTeller=i*10
+  //   bomba_1.style.left=stappenTeller+'px'
+  //   console.log(stappenTeller);
   }
-}
+
 
 // if(loca==succes){
 //   restartLoc()
