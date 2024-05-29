@@ -116,14 +116,42 @@ var locaGetter=function(){
   console.log("Loca: " + loca)
 }
 
-function bombaLoca(){
-  
-  // for (let i = 0; i < 10; i++) {
-  //   const bomba_1=document.getElementById("enemy1")
-  //   stappenTeller=i*10
-  //   bomba_1.style.left=stappenTeller+'px'
-  //   console.log(stappenTeller);
+function bomba_1_Loca(){
+  let id = null;
+  const elem = document.getElementById("enemy1");   
+  let bombaAfstand = -1255;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  function frame() {
+    if (bombaAfstand == -800) {
+      bombaAfstand=-1255
+    } else {
+      bombaAfstand++; 
+      elem.style.left = -bombaAfstand + "px"; 
+    }
   }
+}
+function bomba_2_Loca(){
+  let id = null;
+  const elem = document.getElementById("enemy2");   
+  let bombaAfstand = -390;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  function frame() {
+    if (bombaAfstand == 0) {
+      bombaAfstand=-390
+    } else {
+      bombaAfstand++; 
+      elem.style.left = -bombaAfstand + "px"; 
+    }
+  }
+}
+    // for (let i = 0; i < 10; i++) {
+    //   const bomba_1=document.getElementById("enemy1")
+    //   bombaAfstand=i*300
+    //   bomba_1.style.left=bombaAfstand+'px' 
+    // }
+
 
 
 // if(loca==succes){

@@ -249,20 +249,20 @@
     top: 400px;
     border: red 5px solid;
   }
-  .enemy1{
+  #enemy1{
     position: absolute;
     width: 40px;
     height: 35px;
     left: 1255px;
-    top: 437px;
+    top: 362px;
     border: rgb(230, 0, 255) 5px solid;
   }
-  #pane .enemy2{
+  #enemy2{
     position: absolute;
     width: 40px;
     height: 35px;
     left: 390px;
-    top: 437px;
+    top: 362px;
     border: rgb(230, 0, 255) 5px solid;
   }
   /* auto|length|cover|contain|initial|inherit */
