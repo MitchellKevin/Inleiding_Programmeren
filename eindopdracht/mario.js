@@ -60,6 +60,7 @@ let bombaAfstand_1 = -1520;
 
 
 var jump = function() {
+  // https://www.basedash.com/blog/how-to-change-an-image-src-with-javascript
     // document.getElementById('mario').height="500";
     setTimeout(function(){
       document.getElementById("mario").src = "mario.webp";
