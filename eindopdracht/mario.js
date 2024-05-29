@@ -4,7 +4,12 @@ let loca=0
 let succes= 1000
 bomba_1_loca=0
 bomba_2_loca=0
-
+let id_1 = null;
+let id_2=null;
+const enemy2 = document.getElementById("enemy2");   
+let bombaAfstand_2 = -670;
+const enemy1 = document.getElementById("enemy1");   
+let bombaAfstand_1 = -1520;
 
 // var pane = document.querySelector('#pane'),
 //     mario = document.querySelector('#mario'),
@@ -35,7 +40,7 @@ bomba_2_loca=0
 
 
   document.body.onkeydown = function userData(e) {
-      if( e.keyCode == 87 ) {
+      if( e.keyCode == 32 ) {
         jump();
         // mario.classList.add("large")
         // setTimeout(function(){mario.classList.remove("large")}, 500)      
@@ -50,6 +55,7 @@ bomba_2_loca=0
           goLeft();
           // mario.classList.add("left")
       }
+      goombaStart()
     }
 
 
@@ -119,42 +125,34 @@ function locaAddRight(){
 var locaGetter=function(){
   console.log("Loca: " + loca)
 }
-// Bron: https://www.w3schools.com/js/tryit.asp?filename=tryjs_dom_animate_3 
+  // Bron: https://www.w3schools.com/js/tryit.asp?filename=tryjs_dom_animate_3 
 function bomba_1_Loca(){
-  let id = null;
-  const enemy1 = document.getElementById("enemy1");   
-  let bombaAfstand = -1255;
-  clearInterval(id);
-  id = setInterval(frame, 7);
+  clearInterval(id_1);
+  id_1 = setInterval(frame, 15);
   function frame() {
-    if (bombaAfstand == -800) {
-      bombaAfstand=-1255
+    if (bombaAfstand_1 == -800) {
+      bombaAfstand_1=-1520
     } else {
-      bombaAfstand++; 
-      enemy1.style.left = -bombaAfstand + "px"; 
+      bombaAfstand_1++; 
+      enemy1.style.left = -bombaAfstand_1 + "px"; 
     }
   }
 } 
 
-let id = null;
-const enemy2 = document.getElementById("enemy2");   
-let bombaAfstand = -390;
 function bomba_2_Loca(){
- 
-  clearInterval(id);
-  id = setInterval(frame, 10);
+  clearInterval(id_2);
+  id_2 = setInterval(frame, 15);
   function frame() {
-    if (bombaAfstand == 0) {
-      bombaAfstand=-390
+    if (bombaAfstand_2 == 20) {
+      bombaAfstand_2=-670
     } else {
-      bombaAfstand++; 
-      enemy2.style.left = -bombaAfstand + "px"; 
+      bombaAfstand_2++; 
+      enemy2.style.left = -bombaAfstand_2 + "px"; 
     }
   }
 }
 
 function goombaStart(){
-  collisionCheck()
   bomba_1_Loca()
   bomba_2_Loca()
 }
@@ -175,7 +173,7 @@ function goombaStart(){
 // }
 
 function collisionCheck(){
-  while(loca==bombaAfstand){
+  while(loca==bombaAfstand_1){
     console.log("hit")
     // console.log(bombaAfstand)
   } return
