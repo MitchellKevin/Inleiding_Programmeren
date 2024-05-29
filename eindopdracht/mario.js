@@ -36,7 +36,7 @@ bomba_2_loca=0
 
   document.body.onkeydown = function userData(e) {
       if( e.keyCode == 87 ) {
-        addHit();
+        jump();
         // mario.classList.add("large")
         // setTimeout(function(){mario.classList.remove("large")}, 500)      
       }else if(e.keyCode==68){
@@ -53,8 +53,12 @@ bomba_2_loca=0
     }
 
 
-var addHit = function() {
+var jump = function() {
     // document.getElementById('mario').height="500";
+    setTimeout(function(){
+      document.getElementById("mario").src = "mario.webp";
+   }, 500);
+    document.getElementById("mario").src = "mario_jump.png";
     console.log("Spacebar Pressed")
     mario.classList.add("jump")
     setTimeout(function(){mario.classList.remove("jump")}, 500)
@@ -115,36 +119,44 @@ function locaAddRight(){
 var locaGetter=function(){
   console.log("Loca: " + loca)
 }
-
+// Bron: https://www.w3schools.com/js/tryit.asp?filename=tryjs_dom_animate_3 
 function bomba_1_Loca(){
   let id = null;
-  const elem = document.getElementById("enemy1");   
+  const enemy1 = document.getElementById("enemy1");   
   let bombaAfstand = -1255;
   clearInterval(id);
-  id = setInterval(frame, 5);
+  id = setInterval(frame, 7);
   function frame() {
     if (bombaAfstand == -800) {
       bombaAfstand=-1255
     } else {
       bombaAfstand++; 
-      elem.style.left = -bombaAfstand + "px"; 
+      enemy1.style.left = -bombaAfstand + "px"; 
     }
   }
-}
+} 
+
+let id = null;
+const enemy2 = document.getElementById("enemy2");   
+let bombaAfstand = -390;
 function bomba_2_Loca(){
-  let id = null;
-  const elem = document.getElementById("enemy2");   
-  let bombaAfstand = -390;
+ 
   clearInterval(id);
-  id = setInterval(frame, 5);
+  id = setInterval(frame, 10);
   function frame() {
     if (bombaAfstand == 0) {
       bombaAfstand=-390
     } else {
       bombaAfstand++; 
-      elem.style.left = -bombaAfstand + "px"; 
+      enemy2.style.left = -bombaAfstand + "px"; 
     }
   }
+}
+
+function goombaStart(){
+  collisionCheck()
+  bomba_1_Loca()
+  bomba_2_Loca()
 }
     // for (let i = 0; i < 10; i++) {
     //   const bomba_1=document.getElementById("enemy1")
@@ -161,3 +173,10 @@ function bomba_2_Loca(){
 // function restartLoc(){
 //   loca=loca-1000
 // }
+
+function collisionCheck(){
+  while(loca==bombaAfstand){
+    console.log("hit")
+    // console.log(bombaAfstand)
+  } return
+}
