@@ -153,6 +153,7 @@ function bomba_2_Loca(){
 }
 
 function goombaStart(){
+  collisionCheck()
   bomba_1_Loca()
   bomba_2_Loca()
 }
@@ -173,8 +174,37 @@ function goombaStart(){
 // }
 
 function collisionCheck(){
-  while(loca==bombaAfstand_1){
-    console.log("hit")
-    // console.log(bombaAfstand)
-  } return
+
+  var mario={x:500, y:355, width:50, height:50};
+  var box1={x:260, y:325, width:30, height:30};
+
+  if(mario.x > box1.x + box1.width ||
+    mario.x + mario.width < box1.x ||
+    mario.y > box1.y + box1.height ||
+    mario.y + mario.height < box1.y)
+    {
+
+    }else{
+      console.log('Collision')
+    }
+
 }
+
+// Mario
+
+// position: absolute;
+// top: 355px;
+// left: 500px;
+// width: 50px;
+// height: 50px;
+// transition: all 0.2s;
+// border: red 1px solid;
+
+// box 1
+
+// position: absolute;
+// width: 30px;
+// height: 30px;
+// left: 260px;
+// top: 325px;
+// border: red 5px solid;
