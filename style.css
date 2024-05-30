@@ -265,6 +265,11 @@
     top: 362px;
     border: rgb(230, 0, 255) 5px solid;
   }
+  #finsihLine{
+    position: absolute;
+    left: 1250px;
+    top: -35px;
+  }
   /* auto|length|cover|contain|initial|inherit */
   #mario {
     position: absolute;

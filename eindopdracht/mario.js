@@ -2,6 +2,7 @@ let locaMax=1460
 let locaMin=0
 let loca=0
 let succes= 1000
+let finsihLine=1250
 bomba_1_loca=0
 bomba_2_loca=0
 let id_1 = null;
@@ -10,34 +11,6 @@ const enemy2 = document.getElementById("enemy2");
 let bombaAfstand_2 = -670;
 const enemy1 = document.getElementById("enemy1");   
 let bombaAfstand_1 = -1520;
-
-// var pane = document.querySelector('#pane'),
-//     mario = document.querySelector('#mario'),
-//     maxValue = pane.clientWidth - mario.clientWidth,
-//     keysPressed = {},
-//     distancePerIteration = 5;
-
-// function calculateNewValue(oldValue, keyCode1, keyCode2) {
-//     var newValue = parseInt(oldValue, 10)
-//                    - (keysPressed[keyCode1] ? distancePerIteration : 0)
-//                    + (keysPressed[keyCode2] ? distancePerIteration : 0);
-//     return newValue < 0 ? 0 : newValue > maxValue ? maxValue : newValue;
-// }
-
-// window.addEventListener("keydown", function(event) { keysPressed[event.which] = true; })
-// window.addEventListener("keyup", function(event) { keysPressed[event.which] = false; })
-
-// setInterval(function() {
-//     mario.css({
-//         left: function(eindopdracht ,oldValue) {
-//             return calculateNewValue(oldValue, 37, 39);
-//         },
-//         top: function(eindopdracht, oldValue) {
-//             return calculateNewValue(oldValue, 38, 40);
-//         }
-//     });
-// }, 20);
-
 
   document.body.onkeydown = function userData(e) {
       if( e.keyCode == 32 ) {
@@ -56,6 +29,7 @@ let bombaAfstand_1 = -1520;
           // mario.classList.add("left")
       }
       goombaStart()
+      finish()
     }
 
 
@@ -71,14 +45,6 @@ var jump = function() {
     setTimeout(function(){mario.classList.remove("jump")}, 500)
   }
   
-//   document.body.onkeyup = function(e) {
-//     if( e.keyCode == 39 ) {
-//       goRight();
-//       mario.classList.add("right")
-//     //   setTimeout(function(){mario.classList.remove("right")}, 500)
-      
-//     }
-//   }
   
 var goRight = function() {
     // mario.classList.add("right")
@@ -128,6 +94,8 @@ var locaGetter=function(){
 }
   // Bron: https://www.w3schools.com/js/tryit.asp?filename=tryjs_dom_animate_3 
 function bomba_1_Loca(){
+  console.log(bombaAfstand_1)
+  console.log(loca)
   clearInterval(id_1);
   id_1 = setInterval(frame, 15);
   function frame() {
@@ -137,6 +105,9 @@ function bomba_1_Loca(){
       bombaAfstand_1++; 
       enemy1.style.left = -bombaAfstand_1 + "px"; 
     }
+  }
+  if(bombaAfstand_1==loca){
+    loca=loca-loca
   }
 } 
 
@@ -209,3 +180,9 @@ function collisionCheck(){
 // left: 260px;
 // top: 325px;
 // border: red 5px solid;
+
+function finish(){
+  if(loca==1400){
+    loca=loca-loca
+  }
+}
