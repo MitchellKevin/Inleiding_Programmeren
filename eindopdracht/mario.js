@@ -5,12 +5,15 @@ let succes= 1000
 let finsihLine=1250
 bomba_1_loca=0
 bomba_2_loca=0
-let id_1 = null;
-let id_2=null;
+let interval_1 = null;
+let interval_2=null;
 const enemy2 = document.getElementById("enemy2");   
 let bombaAfstand_2 = -670;
 const enemy1 = document.getElementById("enemy1");   
 let bombaAfstand_1 = -1520;
+
+let box1= document.querySelector(".box1");
+ 
 
   document.body.onkeydown = function userData(e) {
       if( e.keyCode == 32 ) {
@@ -96,8 +99,9 @@ var locaGetter=function(){
 function bomba_1_Loca(){
   console.log(bombaAfstand_1)
   console.log(loca)
-  clearInterval(id_1);
-  id_1 = setInterval(frame, 15);
+  console.log(mario.y)
+  clearInterval(interval_1);
+  interval_1 = setInterval(frame, 15);
   function frame() {
     if (bombaAfstand_1 == -800) {
       bombaAfstand_1=-1520
@@ -112,8 +116,8 @@ function bomba_1_Loca(){
 } 
 
 function bomba_2_Loca(){
-  clearInterval(id_2);
-  id_2 = setInterval(frame, 15);
+  clearInterval(interval_2);
+  interval_2 = setInterval(frame, 15);
   function frame() {
     if (bombaAfstand_2 == 20) {
       bombaAfstand_2=-670
@@ -145,23 +149,39 @@ function goombaStart(){
 //   loca=loca-1000
 // }
 
+// function collisionCheck(){
+  
+//   // var mario={x:500, y:355, width:50, height:50};
+//   // var box1={x:260, y:325, width:30, height:30};
+
+//   if(mario.x > 252 + box1.offsetWidth ||
+//     mario.x + mario.offsetWidth < 252 ||
+//     mario.y > 627 + box1.offsetHeight ||
+//     mario.y + mario.offsetHeight < 627)
+//     {
+//       console.log("geen collision")
+//     }else{
+//       console.log('Collision')
+//     }
+
+// }
 function collisionCheck(){
+  
+  // var mario={x:500, y:355, width:50, height:50};
+  // var box1={x:260, y:325, width:30, height:30};
 
-  var mario={x:500, y:355, width:50, height:50};
-  var box1={x:260, y:325, width:30, height:30};
-
-  if(mario.x > box1.x + box1.width ||
-    mario.x + mario.width < box1.x ||
-    mario.y > box1.y + box1.height ||
-    mario.y + mario.height < box1.y)
+  if(mario.x > enemy2.x + enemy2.offsetWidth ||
+    mario.x + mario.offsetWidth < enemy2.x ||
+    mario.y > enemy2.y + box1.offsetHeight ||
+    mario.y + mario.offsetHeight < enemy2.y)
     {
-
+      console.log("geen collision")
     }else{
       console.log('Collision')
+      loca=loca-loca
     }
 
 }
-
 // Mario
 
 // position: absolute;

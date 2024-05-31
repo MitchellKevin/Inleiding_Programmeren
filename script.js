@@ -9,7 +9,6 @@ const controleer=document.querySelector("#controleer")
 const button= document.querySelector("button")
 let getalVeld=document.querySelector("p")
 mysteryNumber=Math.round(Math.random()*6)
-
 getalVeld.textContent=getal
 function veranderKnopNaam(){
     kop.textContent=bericht
