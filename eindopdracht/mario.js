@@ -13,7 +13,6 @@ const enemy1 = document.getElementById("enemy1");
 let bombaAfstand_1 = -1520;
 
 let box1= document.querySelector(".box1");
- 
 
   document.body.onkeydown = function userData(e) {
       if( e.keyCode == 32 ) {
@@ -31,6 +30,7 @@ let box1= document.querySelector(".box1");
           goLeft();
           // mario.classList.add("left")
       }
+      collisionCheck()
       goombaStart()
       finish()
     }
@@ -43,7 +43,6 @@ var jump = function() {
       document.getElementById("mario").src = "mario.webp";
    }, 500);
     document.getElementById("mario").src = "mario_jump.png";
-    console.log("Spacebar Pressed")
     mario.classList.add("jump")
     setTimeout(function(){mario.classList.remove("jump")}, 500)
   }
@@ -129,7 +128,6 @@ function bomba_2_Loca(){
 }
 
 function goombaStart(){
-  collisionCheck()
   bomba_1_Loca()
   bomba_2_Loca()
 }
@@ -139,7 +137,11 @@ function goombaStart(){
     //   bomba_1.style.left=bombaAfstand+'px' 
     // }
 
-
+function collisionCheck(){
+  collisionCheckBox1()
+  collisionCheckEnemy1()
+  collisionCheckEnemy2()
+}
 
 // if(loca==succes){
 //   restartLoc()
@@ -149,23 +151,20 @@ function goombaStart(){
 //   loca=loca-1000
 // }
 
-// function collisionCheck(){
-  
-//   // var mario={x:500, y:355, width:50, height:50};
-//   // var box1={x:260, y:325, width:30, height:30};
+function collisionCheckBox1(){
 
-//   if(mario.x > 252 + box1.offsetWidth ||
-//     mario.x + mario.offsetWidth < 252 ||
-//     mario.y > 627 + box1.offsetHeight ||
-//     mario.y + mario.offsetHeight < 627)
-//     {
-//       console.log("geen collision")
-//     }else{
-//       console.log('Collision')
-//     }
+  if(mario.x > 337 + box1.offsetWidth ||
+    mario.x + mario.offsetWidth < 337 ||
+    mario.y > 611 + box1.offsetHeight ||
+    mario.y + mario.offsetHeight < 611)
+    {
+      console.log("geen collision")
+    }else{
+      console.log('Collision')
+    }
 
-// }
-function collisionCheck(){
+}
+function collisionCheckEnemy2(){
   
   // var mario={x:500, y:355, width:50, height:50};
   // var box1={x:260, y:325, width:30, height:30};
@@ -174,6 +173,23 @@ function collisionCheck(){
     mario.x + mario.offsetWidth < enemy2.x ||
     mario.y > enemy2.y + box1.offsetHeight ||
     mario.y + mario.offsetHeight < enemy2.y)
+    {
+      console.log("geen collision")
+    }else{
+      console.log('Collision')
+      loca=loca-loca
+    }
+
+}
+function collisionCheckEnemy1(){
+  
+  // var mario={x:500, y:355, width:50, height:50};
+  // var box1={x:260, y:325, width:30, height:30};
+
+  if(mario.x > enemy1.x + enemy1.offsetWidth ||
+    mario.x + mario.offsetWidth < enemy1.x ||
+    mario.y > enemy1.y + box1.offsetHeight ||
+    mario.y + mario.offsetHeight < enemy1.y)
     {
       console.log("geen collision")
     }else{
