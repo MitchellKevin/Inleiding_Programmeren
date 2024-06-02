@@ -289,4 +289,7 @@
   #mario.left{
     transform: scaleX(-1);
   }
+  #mario.block{
+    top: 200px;
+  }
 

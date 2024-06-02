@@ -11,8 +11,15 @@ const enemy2 = document.getElementById("enemy2");
 let bombaAfstand_2 = -670;
 const enemy1 = document.getElementById("enemy1");   
 let bombaAfstand_1 = -1520;
-
+// let isJumping = false;
+// let gravity = 0.5;
+// let velocityY = 0;
+// const groundLevel = 355;
+let box0=document.querySelector(".box0");
 let box1= document.querySelector(".box1");
+let box3=document.querySelector(".box3");
+let box4=document.querySelector(".box4");
+
 
   document.body.onkeydown = function userData(e) {
       if( e.keyCode == 32 ) {
@@ -30,7 +37,8 @@ let box1= document.querySelector(".box1");
           goLeft();
           // mario.classList.add("left")
       }
-      collisionCheck()
+      check()
+      collisionEnemy()
       goombaStart()
       finish()
     }
@@ -45,8 +53,32 @@ var jump = function() {
     document.getElementById("mario").src = "mario_jump.png";
     mario.classList.add("jump")
     setTimeout(function(){mario.classList.remove("jump")}, 500)
+  
   }
   
+  // function applyGravity() {
+  //   if (isJumping) {
+  //       velocityY += gravity;
+  //       mario.style.top = (mario.offsetTop + velocityY) + 'px';
+
+  //       // Check for collision with the ground
+  //       if (mario.offsetTop >= groundLevel) {
+  //           mario.style.top = groundLevel + 'px';
+  //           isJumping = false;
+  //           mario.classList.remove("jump");
+  //           mario.src = "mario.webp";
+  //       }
+
+  //       // Check for collision with box1
+  //       if (collisionCheckBox1()) {
+  //           isJumping = false;
+  //           mario.classList.remove("jump");
+  //           mario.src = "mario.webp";
+  //           mario.style.top = (box1.offsetTop - mario.offsetHeight) + 'px';
+  //       }
+  //   }
+  //   requestAnimationFrame(applyGravity);
+  // }
   
 var goRight = function() {
     // mario.classList.add("right")
@@ -96,9 +128,6 @@ var locaGetter=function(){
 }
   // Bron: https://www.w3schools.com/js/tryit.asp?filename=tryjs_dom_animate_3 
 function bomba_1_Loca(){
-  console.log(bombaAfstand_1)
-  console.log(loca)
-  console.log(mario.y)
   clearInterval(interval_1);
   interval_1 = setInterval(frame, 15);
   function frame() {
@@ -137,8 +166,14 @@ function goombaStart(){
     //   bomba_1.style.left=bombaAfstand+'px' 
     // }
 
-function collisionCheck(){
-  collisionCheckBox1()
+// function collisionCheck(){
+//   collisionCheckBox0()
+//   collisionCheckBox1()
+//   collisionCheckBox4()
+// }
+
+function collisionEnemy(){
+  collisionCheckBox0()
   collisionCheckEnemy1()
   collisionCheckEnemy2()
 }
@@ -157,13 +192,101 @@ function collisionCheckBox1(){
     mario.x + mario.offsetWidth < 337 ||
     mario.y > 611 + box1.offsetHeight ||
     mario.y + mario.offsetHeight < 611)
+
     {
       console.log("geen collision")
+      setTimeout(function(){mario.classList.remove("block")}, 100)
+      // const block=document.getElementById("mario")
+      // block.style.top= 355 + 'px'
     }else{
       console.log('Collision')
+      // const block=document.getElementById("mario")
+      // block.style.top=100 + 'px'
+      mario.classList.add("block")
     }
+  }
+
+    function collisionCheckBox0(){
+
+      if(mario.x > 537 + box0.offsetWidth ||
+        mario.x + mario.offsetWidth < 537 ||
+        mario.y > 611 + box0.offsetHeight ||
+        mario.y + mario.offsetHeight < 611)
+        {
+          console.log("geen collision")
+          setTimeout(function(){mario.classList.remove("block")}, 100)
+          // const block=document.getElementById("mario")
+          // block.style.top= 355 + 'px'
+        }else{
+          console.log('Collision')
+          // const block=document.getElementById("mario")
+          // block.style.top=100 + 'px'
+          mario.classList.add("block")
+        }
+
 
 }
+// function collisionCheckBox2(){
+
+//   if(mario.x > 337 + box1.offsetWidth ||
+//     mario.x + mario.offsetWidth < 337 ||
+//     mario.y > 611 + box1.offsetHeight ||
+//     mario.y + mario.offsetHeight < 611)
+//     {
+//       console.log("geen collision")
+//       setTimeout(function(){mario.classList.remove("block")}, 100)
+//       // const block=document.getElementById("mario")
+//       // block.style.top= 355 + 'px'
+//     }else{
+//       console.log('Collision')
+//       // const block=document.getElementById("mario")
+//       // block.style.top=100 + 'px'
+//       mario.classList.add("block")
+//     }
+
+
+// }
+function collisionCheckBox3(){
+
+  if(mario.x > 942 + box3.offsetWidth ||
+    mario.x + mario.offsetWidth < 942 ||
+    mario.y > 611 + box3.offsetHeight ||
+    mario.y + mario.offsetHeight < 611)
+    {
+      console.log("geen collision")
+      setTimeout(function(){mario.classList.remove("block")}, 100)
+      // const block=document.getElementById("mario")
+      // block.style.top= 355 + 'px'
+    }else{
+      console.log('Collision')
+      // const block=document.getElementById("mario")
+      // block.style.top=100 + 'px'
+      mario.classList.add("block")
+    }
+
+
+}
+function collisionCheckBox4(){
+
+  if(mario.x > 1040 + box4.offsetWidth ||
+    mario.x + mario.offsetWidth < 1040 ||
+    mario.y > 611 + box4.offsetHeight ||
+    mario.y + mario.offsetHeight < 611)
+    {
+      console.log("geen collision")
+      setTimeout(function(){mario.classList.remove("block")}, 100)
+      // const block=document.getElementById("mario")
+      // block.style.top= 355 + 'px'
+    }else{
+      console.log('Collision')
+      // const block=document.getElementById("mario")
+      // block.style.top=100 + 'px'
+      mario.classList.add("block")
+    }
+
+
+}
+
 function collisionCheckEnemy2(){
   
   // var mario={x:500, y:355, width:50, height:50};
