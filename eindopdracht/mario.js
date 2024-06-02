@@ -11,6 +11,7 @@ const enemy2 = document.getElementById("enemy2");
 let bombaAfstand_2 = -670;
 const enemy1 = document.getElementById("enemy1");   
 let bombaAfstand_1 = -1520;
+let hs=document.querySelector("h2");
 // let isJumping = false;
 // let gravity = 0.5;
 // let velocityY = 0;
@@ -20,13 +21,15 @@ let box1= document.querySelector(".box1");
 let box3=document.querySelector(".box3");
 let box4=document.querySelector(".box4");
 
+function setHighscore(){
+  hs.textContent="Score: "+loca
+}
+
 const button= document.querySelector("#startButton")
 button.addEventListener("click", start)
 
 function start(){
       goombaStart()
-      // boxCollisioChecker()
-      finish()
   document.body.onkeydown = function userData(e) {
       if( e.keyCode == 32 ) {
         jump();
@@ -43,11 +46,11 @@ function start(){
           goLeft();
           // mario.classList.add("left")
       }
-      // collisionCheckBox3()// 
+      enemyCollisionChecker()
       boxCollisioChecker()
-      // boxCollisionChecker2()
-      
+      setHighscore()
       finish()
+
     }
   }
 
@@ -180,10 +183,10 @@ function goombaStart(){
 //   collisionCheckBox4()
 // }
 
-function collisionEnemy(){
-  collisionCheckEnemy1()
-  collisionCheckEnemy2()
-}
+// function collisionEnemy(){
+//   collisionCheckEnemy1()
+//   collisionCheckEnemy2()
+// }
 
 // if(loca==succes){
 //   restartLoc()
@@ -201,6 +204,14 @@ function boxCollisioChecker(){
     collisionCheckBox4()
   }else if(mario.x>1512){
     collisionCheckBox3()
+  }
+}
+
+function enemyCollisionChecker(){
+  if(mario.x<937){
+    collisionCheckEnemy2()
+  }else if(mario.x>937){
+    collisionCheckEnemy1()
   }
 }
 

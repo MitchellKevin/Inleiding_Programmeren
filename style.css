@@ -1,3 +1,6 @@
+body{
+  overflow: hidden;
+}
 .title{
     margin: 12em 1em 0em 1em;
     display: flex;
@@ -267,8 +270,9 @@
   }
   #finsihLine{
     position: absolute;
-    left: 1250px;
+    left: 1450px;
     top: -35px;
+    width: 100px;
   }
   /* auto|length|cover|contain|initial|inherit */
   #mario {
@@ -296,4 +300,10 @@
   position: absolute;
   top: 50px;
 
+}
+.highscore{
+  position: absolute;
+  top: 140px;
+  text-align: center;
+  width: 100%;
 }
