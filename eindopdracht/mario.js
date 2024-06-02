@@ -20,7 +20,6 @@ let box1= document.querySelector(".box1");
 let box3=document.querySelector(".box3");
 let box4=document.querySelector(".box4");
 
-
   document.body.onkeydown = function userData(e) {
       if( e.keyCode == 32 ) {
         jump();
@@ -37,8 +36,8 @@ let box4=document.querySelector(".box4");
           goLeft();
           // mario.classList.add("left")
       }
-      check()
       collisionEnemy()
+      boxCollisioChecker()
       goombaStart()
       finish()
     }
@@ -55,7 +54,8 @@ var jump = function() {
     setTimeout(function(){mario.classList.remove("jump")}, 500)
   
   }
-  
+
+
   // function applyGravity() {
   //   if (isJumping) {
   //       velocityY += gravity;
@@ -173,7 +173,6 @@ function goombaStart(){
 // }
 
 function collisionEnemy(){
-  collisionCheckBox0()
   collisionCheckEnemy1()
   collisionCheckEnemy2()
 }
@@ -185,6 +184,17 @@ function collisionEnemy(){
 // function restartLoc(){
 //   loca=loca-1000
 // }
+function boxCollisioChecker(){
+  if(mario.x<=437){
+    collisionCheckBox1()
+  }else if(437>mario.x<812){
+    collisionCheckBox0()
+  }else if(812>mario.x<1512){
+    collisionCheckBox4()
+  }else if(mario.x>1512){
+    collisionCheckBox3()
+  }
+}
 
 function collisionCheckBox1(){
 
@@ -248,8 +258,8 @@ function collisionCheckBox1(){
 // }
 function collisionCheckBox3(){
 
-  if(mario.x > 942 + box3.offsetWidth ||
-    mario.x + mario.offsetWidth < 942 ||
+  if(mario.x > 1612 + box3.offsetWidth ||
+    mario.x + mario.offsetWidth < 1612 ||
     mario.y > 611 + box3.offsetHeight ||
     mario.y + mario.offsetHeight < 611)
     {
@@ -268,8 +278,8 @@ function collisionCheckBox3(){
 }
 function collisionCheckBox4(){
 
-  if(mario.x > 1040 + box4.offsetWidth ||
-    mario.x + mario.offsetWidth < 1040 ||
+  if(mario.x > 1412 + box4.offsetWidth ||
+    mario.x + mario.offsetWidth < 1412 ||
     mario.y > 611 + box4.offsetHeight ||
     mario.y + mario.offsetHeight < 611)
     {
