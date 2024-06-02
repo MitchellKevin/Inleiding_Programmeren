@@ -292,4 +292,8 @@
   #mario.block{
     top: 200px;
   }
+#startButton{
+  position: absolute;
+  top: 50px;
 
+}

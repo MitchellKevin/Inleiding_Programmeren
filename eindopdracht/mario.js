@@ -20,6 +20,13 @@ let box1= document.querySelector(".box1");
 let box3=document.querySelector(".box3");
 let box4=document.querySelector(".box4");
 
+const button= document.querySelector("#startButton")
+button.addEventListener("click", start)
+
+function start(){
+      goombaStart()
+      // boxCollisioChecker()
+      finish()
   document.body.onkeydown = function userData(e) {
       if( e.keyCode == 32 ) {
         jump();
@@ -36,14 +43,15 @@ let box4=document.querySelector(".box4");
           goLeft();
           // mario.classList.add("left")
       }
-      collisionEnemy()
+      // collisionCheckBox3()// 
       boxCollisioChecker()
-      goombaStart()
+      // boxCollisionChecker2()
+      
       finish()
     }
+  }
 
-
-var jump = function() {
+function jump() {
   // https://www.basedash.com/blog/how-to-change-an-image-src-with-javascript
     // document.getElementById('mario').height="500";
     setTimeout(function(){
@@ -80,7 +88,7 @@ var jump = function() {
   //   requestAnimationFrame(applyGravity);
   // }
   
-var goRight = function() {
+function goRight() {
     // mario.classList.add("right")
     locaAddRight()
     const test=document.getElementById("mario")
@@ -99,7 +107,7 @@ var goRight = function() {
       
 //     }
 //   }
-var goLeft = function() {
+function goLeft() {
     // document.getElementById('mario').height="500";
     // mario.classList.add("left")
     locaAddLeft()
@@ -187,14 +195,23 @@ function collisionEnemy(){
 function boxCollisioChecker(){
   if(mario.x<=437){
     collisionCheckBox1()
-  }else if(437>mario.x<812){
+  }else if(mario.x>437 && mario.x <812){
     collisionCheckBox0()
-  }else if(812>mario.x<1512){
+  }else if(mario.x>812 && mario.x < 1512){
     collisionCheckBox4()
   }else if(mario.x>1512){
     collisionCheckBox3()
   }
 }
+
+
+// function boxCollisionChecker2() {
+//   if (mario.x > 812 && mario.x < 1512) {
+//       collisionCheckBox4();
+//   } else if (mario.x > 1512) {
+//       collisionCheckBox3()
+//   }
+// }
 
 function collisionCheckBox1(){
 
