@@ -1,0 +1,310 @@
+body{
+    overflow: hidden;
+  }
+  .title{
+      margin: 12em 1em 0em 1em;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      border: 0.25em solid black;
+      text-align: center;
+  }
+  .title h1{
+      margin: 0;
+      font-size: 7em;
+      font-weight: 100;
+  }
+  .title h2{
+      margin: 0;
+      font-size: 10em;
+      font-weight: 550;
+  }
+  
+    #toggle {
+      display: none;
+    }
+    
+    /**
+      Hamburger
+    **/
+    .hamburger {
+      position: absolute;
+      top: 5em;
+      left: 10%;
+      margin-left: -2em;
+      margin-top: -45px;
+      width: 2em;
+      height: 45px;
+      z-index: 5;
+    }
+    
+    .hamburger div {
+      position: relative;
+      width: 4em;
+      height: 7px;
+      border-radius: 3px;
+      background-color: #000000;
+      margin-top: 8px;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger .top-bun{
+      width: 2em;
+    }
+    .hamburger .meat{
+      width: 3em;
+    }
+    .hamburger .bottom-bun{
+      width: 4em;
+    }
+    
+    /**
+    Nav Styles
+    **/
+    .nav {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      top: -100%; left: 0; right: 0; bottom: 0;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      transform: scale(0);
+      z-index: 2;
+    }
+    .nav-wrapper {
+      overflow: hidden;
+      overflow-y: auto;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    nav {
+      text-align: left;
+    }
+    nav a {
+      position: relative;
+      text-decoration: none;
+      color: #000000;
+      font-size: 3em;
+      display: inline-block;
+      margin-top: 1.25em;
+      transition: color 0.2s ease-in-out;
+      letter-spacing: 1px;
+    }
+    nav a:before {
+      content: '';
+      height: 0;
+      position: absolute;
+      width: 0.25em;
+      background-color: rgb(106, 106, 106);
+      left: -0.5em;
+      transition: all 0.2s ease-in-out;
+    }
+    nav a:hover {
+      color: 106, 106, 106;
+    }
+    nav a:hover:before {
+      height: 100%;
+    }
+    
+    /**
+    Animations
+    **/
+    #toggle:checked + .hamburger .top-bun {
+      transform: rotate(-45deg);
+      margin-top: 25px;
+      width: 3em;
+    }
+    #toggle:checked + .hamburger .bottom-bun {
+      opacity: 0;
+      transform: rotate(45deg);
+    }
+    #toggle:checked + .hamburger .meat {
+      transform: rotate(45deg);
+      margin-top: -7px;
+      width: 3em;
+    }
+    
+    #toggle:checked + .hamburger + .nav {
+      top: 0;
+      transform: scale(1);
+    }
+  
+    /* Home Page */
+    .flex-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  
+    h1{
+      font-size: 5em;
+    }
+    h2{
+      color: grey;
+      text-align: center;
+    }
+  
+    /* bobbelsteen oefening */
+  
+    img{
+      display: block;
+      margin: 10vh auto;
+      -webkit-touch-callout: none; /*dit voorkomt selecteren van de dobbelsteen */
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    p{
+        font-family: sans-serif;
+        font-weight: bold;
+        color: red;
+        font-size: 2em;
+        text-align: center;
+        margin-top: -5vh;
+    }
+  
+    /* week 2 */
+    .errorButton{
+      opacity: 0;
+    }
+  
+    .number_guess_game{
+      display: flex;
+      justify-content: center;
+    }
+    #minButton{
+      margin-right: 3em;
+    }
+  
+    /* mario */
+  /* https://www.w3schools.com/cssref/css3_pr_background-size.php */
+  /* https://nl.pinterest.com/pin/568579521680563687/ */
+    #pane {
+      position: absolute;
+      width: 1520px;
+      height: 540px;
+      border: 2px solid rgb(0, 0, 0);
+      /* background-image: url(https://i.pinimg.com/originals/dc/8d/ef/dc8def609c27f9123c4f61a83a3b93bd.jpg); */
+      background-image: url(mario_background.jpg);
+      background-size: contain;
+    }
+  
+    #pane .box0{
+      position: absolute;
+      width: 190px;
+      height: 30px;
+      left: 415px;
+      top: 325px;
+      border: red 5px solid;
+    }
+    #pane .box1{
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 260px;
+      top: 325px;
+      border: red 5px solid;
+    }
+    #pane .box2{
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 490px;
+      top: 170px;
+      border: red 5px solid;
+    }
+    #pane .box3{
+      position: absolute;
+      width: 190px;
+      height: 30px;
+      left: 1276px;
+      top: 326px;
+      border: red 5px solid;
+    }
+    #pane .box4{
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 1124px;
+      top: 329px;
+      border: red 5px solid;
+    }
+    #pane .box5{
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 1355px;
+      top: 170px;
+      border: red 5px solid;
+    }
+    #pane .box6{
+      position: absolute;
+      width: 70px;
+      height: 75px;
+      left: 725px;
+      top: 400px;
+      border: red 5px solid;
+    }
+    #enemy1{
+      position: absolute;
+      width: 40px;
+      height: 35px;
+      left: 1520px;
+      top: 362px;
+      border: rgb(230, 0, 255) 5px solid;
+    }
+    #enemy2{
+      position: absolute;
+      width: 40px;
+      height: 35px;
+      left: 670px;
+      top: 362px;
+      border: rgb(230, 0, 255) 5px solid;
+    }
+    #finsihLine{
+      position: absolute;
+      left: 1450px;
+      top: -35px;
+      width: 100px;
+    }
+    /* auto|length|cover|contain|initial|inherit */
+    #mario {
+      position: absolute;
+      top: 355px;
+      left: 500px;
+      width: 50px;
+      height: 50px;
+      transition: all 0.2s;
+      border: red 1px solid;
+    }
+    #mario.jump{
+     top: 200px;
+    }
+    #mario.right{
+      transform: scaleX(1);
+    }
+    #mario.left{
+      transform: scaleX(-1);
+    }
+    #mario.block{
+      top: 200px;
+    }
+  #startButton{
+    position: absolute;
+    top: 50px;
+  
+  }
+  .highscore{
+    position: absolute;
+    top: 140px;
+    text-align: center;
+    width: 100%;
+  }
+  
