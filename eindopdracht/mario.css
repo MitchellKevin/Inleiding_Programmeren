@@ -270,9 +270,9 @@ body{
     }
     #finsihLine{
       position: absolute;
-      left: 1450px;
+      left: 1400px;
       top: -35px;
-      width: 100px;
+      width: 150px;
     }
     /* auto|length|cover|contain|initial|inherit */
     #mario {
