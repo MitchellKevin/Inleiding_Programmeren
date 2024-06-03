@@ -19,17 +19,17 @@ let box2= document.querySelector(".box2")
 let box3=document.querySelector(".box3");
 let box4=document.querySelector(".box4");
 let timer=0;
-let highestScore = 99999
+let lowestScore = 99999
 
 // while(mario.y==611){
 //   mario.classList.add("jump2")
 //   setTimeout(function(){mario.classList.remove("jump")}, 500)
 // }
 
-function getHighscore(){
-  score.textContent="Highscore: " + highestScore
+function getLowestScore(){
+  score.textContent="Lowest Score: " + lowestScore
 }
-function setHighscore(){
+function setLowestScore(){
   hs.textContent="Score: "+ timer
 }
 
@@ -65,8 +65,8 @@ function start(){
       }
       enemyCollisionChecker()
       boxCollisioChecker()
-      setHighscore()
-      getHighscore()
+      setLowestScore()
+      getLowestScore()
       finish()
       setTimer()  
     }
@@ -323,8 +323,8 @@ function finish(){
   if(loca==1400){
     loca=loca-loca
     // highestScore=timer
-    if (timer < highestScore) {
-      highestScore = timer;
+    if (timer < lowestScore) {
+      lowestScore = timer;
     }
     timer=timer-timer
   }
