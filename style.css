@@ -287,6 +287,9 @@ body{
   #mario.jump{
    top: 200px;
   }
+  #mario.jump2{
+    top:300px;
+  }
   #mario.right{
     transform: scaleX(1);
   }

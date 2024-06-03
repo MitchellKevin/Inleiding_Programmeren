@@ -202,7 +202,7 @@ body{
       height: 30px;
       left: 415px;
       top: 325px;
-      border: red 5px solid;
+      /* border: red 5px solid; */
     }
     #pane .box1{
       position: absolute;
@@ -210,7 +210,7 @@ body{
       height: 30px;
       left: 260px;
       top: 325px;
-      border: red 5px solid;
+      /* border: red 5px solid; */
     }
     #pane .box2{
       position: absolute;
@@ -218,7 +218,7 @@ body{
       height: 30px;
       left: 490px;
       top: 170px;
-      border: red 5px solid;
+      /* border: red 5px solid; */
     }
     #pane .box3{
       position: absolute;
@@ -226,7 +226,7 @@ body{
       height: 30px;
       left: 1276px;
       top: 326px;
-      border: red 5px solid;
+      /* border: red 5px solid; */
     }
     #pane .box4{
       position: absolute;
@@ -234,7 +234,7 @@ body{
       height: 30px;
       left: 1124px;
       top: 329px;
-      border: red 5px solid;
+      /* border: red 5px solid; */
     }
     #pane .box5{
       position: absolute;
@@ -242,7 +242,7 @@ body{
       height: 30px;
       left: 1355px;
       top: 170px;
-      border: red 5px solid;
+      /* border: red 5px solid; */
     }
     #pane .box6{
       position: absolute;
@@ -250,23 +250,23 @@ body{
       height: 75px;
       left: 725px;
       top: 400px;
-      border: red 5px solid;
+      /* border: red 5px solid; */
     }
     #enemy1{
       position: absolute;
       width: 40px;
       height: 35px;
       left: 1520px;
-      top: 362px;
-      border: rgb(230, 0, 255) 5px solid;
+      top: 372px;
+      /* border: rgb(230, 0, 255) 5px solid; */
     }
     #enemy2{
       position: absolute;
       width: 40px;
       height: 35px;
       left: 670px;
-      top: 362px;
-      border: rgb(230, 0, 255) 5px solid;
+      top: 372px;
+      /* border: rgb(230, 0, 255) 5px solid; */
     }
     #finsihLine{
       position: absolute;
@@ -282,10 +282,13 @@ body{
       width: 50px;
       height: 50px;
       transition: all 0.2s;
-      border: red 1px solid;
+      /* border: red 1px solid; */
     }
     #mario.jump{
      top: 200px;
+    }
+    #mario.secondJump{
+      top:45px;
     }
     #mario.right{
       transform: scaleX(1);
@@ -295,6 +298,9 @@ body{
     }
     #mario.block{
       top: 200px;
+    }
+    #mario.block2{
+      top: 45px;
     }
   #startButton{
     position: absolute;
