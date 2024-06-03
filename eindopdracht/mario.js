@@ -77,8 +77,6 @@ function start() {
 
 }
 
-
-
 // De functies hieronder zijn de manipulaties op de onder andere css door classList en directe manipulatie op de css.
 // Deze functies zijn voor de movement inputs van de gebruiker.
 function jump() {
@@ -91,7 +89,6 @@ function jump() {
   mario.classList.add("jump")
   setTimeout(function () { mario.classList.remove("jump") }, 500)
 }
-
 
 function goRight() {
   locaAddRight()
