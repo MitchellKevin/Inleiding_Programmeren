@@ -44,7 +44,11 @@ function setTimer(){
   }
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement
+let bgMusic = new Audio("mainAudio.mp3");
+
 function start(){
+  bgMusic.play()
     goombaStart()
   document.body.onkeydown = function userData(e) {
       if( e.keyCode == 32 ) {
