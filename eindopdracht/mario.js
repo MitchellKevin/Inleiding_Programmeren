@@ -21,11 +21,6 @@ let box4=document.querySelector(".box4");
 let timer=0;
 let lowestScore = 99999
 
-// while(mario.y==611){
-//   mario.classList.add("jump2")
-//   setTimeout(function(){mario.classList.remove("jump")}, 500)
-// }
-
 function getLowestScore(){
   score.textContent="Lowest Score: " + lowestScore
 }
@@ -76,17 +71,6 @@ function start(){
   
   
 
-// function jumpChecker(){
-//   if(mario.y<=650){
-//     console.log("Second Jump")
-//     setTimeout(function(){mario.classList.remove("jump")})
-//     mario.classList.add("secondJump")
-//     setTimeout(function(){mario.classList.remove("secondJump")}, 500)
-//   }else{
-//     mario.classList.add("jump")
-//     setTimeout(function(){mario.classList.remove("jump")}, 500)
-//   }
-// }
 
 function jump() {
   // https://www.basedash.com/blog/how-to-change-an-image-src-with-javascript
@@ -94,21 +78,11 @@ function jump() {
       document.getElementById("mario").src = "mario.webp";
    }, 500);
     document.getElementById("mario").src = "mario_jump.png";
-    // jumpChecker()
+
     mario.classList.add("jump")
     setTimeout(function(){mario.classList.remove("jump")}, 500)
   }
 
-  function secondJump() {
-    // https://www.basedash.com/blog/how-to-change-an-image-src-with-javascript
-      setTimeout(function(){
-        document.getElementById("mario").src = "mario.webp";
-     }, 500);
-      document.getElementById("mario").src = "mario_jump.png";
-      // jumpChecker()
-      mario.classList.add("secondJump")
-      setTimeout(function(){mario.classList.remove("secondJump")}, 500)
-    }
     
 function goRight() {
     locaAddRight()
@@ -175,7 +149,6 @@ function boxCollisioChecker(){
   if(mario.x<=437){
     collisionCheckBox1()
   }else if(mario.x>437 && mario.x <812){
-    collisionCheckBox2()
     collisionCheckBox0()
   }else if(mario.x>812 && mario.x < 1512){
     collisionCheckBox4()
@@ -218,23 +191,9 @@ function collisionCheckBox1(){
           console.log("geen collision")
           setTimeout(function(){mario.classList.remove("block")}, 100)
         }else{
-          // if( e.keyCode == 32 ) {
-          //   mairo.classList.add("block2")
-          //   // jump();
-          // }
           console.log('Collision')
           mario.classList.add("block")
-          // document.body.onkeydown = function userData(e) {
-          // if( e.keyCode == 32 ) {
-          //   console.log("POGGGERSSS")
-          //   setTimeout(function(){mario.classList.remove("block")})
-          //   setTimeout(function(){mario.classList.remove("jump")})
-          //   secondJump()
-          //   const test2=document.getElementById("#mario.block")
-          //   test2.style.top= 45 + 'px'
-          // }  
         }
-          // jumpChecker()
         }
 
 
@@ -273,24 +232,6 @@ function collisionCheckBox4(){
 
 }
 
-function collisionCheckBox2(){
-
-  if(mario.x > 587 + box2.offsetWidth ||
-    mario.x + mario.offsetWidth < 587 ||
-    mario.y > 411 + box2.offsetHeight ||
-    mario.y + mario.offsetHeight < 411)
-    {
-      console.log("geen collision")
-      setTimeout(function(){mario.classList.remove("block2")}, 100)
-
-    }else{    
-      console.log('Collision')
-      mario.classList.add("block2")
-    }
-
-
-}
-
 function collisionCheckEnemy2(){
   if(mario.x > enemy2.x + enemy2.offsetWidth ||
     mario.x + mario.offsetWidth < enemy2.x ||
@@ -322,7 +263,6 @@ function collisionCheckEnemy1(){
 function finish(){
   if(loca==1400){
     loca=loca-loca
-    // highestScore=timer
     if (timer < lowestScore) {
       lowestScore = timer;
     }
