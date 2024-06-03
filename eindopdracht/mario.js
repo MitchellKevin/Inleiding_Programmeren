@@ -21,20 +21,15 @@ let box4 = document.querySelector(".box4");
 let timer = 0;
 let lowestScore = 99999
 
+// In deze 3 functies word met getters en setters de score opgeslagen.
+// Door de setTimer geeft de functie elke keer een score terug die op elke beweging opnieuw wordt terug gegeven.
+// Dit heb ik gedaan met een for loop.
 function getLowestScore() {
   score.textContent = "Lowest Score: " + lowestScore
 }
 function setLowestScore() {
   hs.textContent = "Score: " + timer
 }
-
-let button = document.querySelector("#startButton")
-button.addEventListener("click", start)
-
-// function playMusic(){
-//     let audio= new Audio("mainAudio.mp3")
-//     audio.button()
-//   }
 
 function setTimer() {
   for (let i = 0; i < 10; i++) {
@@ -44,10 +39,19 @@ function setTimer() {
   }
 }
 
+// Variabel aangemaakt voor de audio. Dit is gedaan door een object aan te maken (new).
+// Hieronder staan de bronnen en de mp3 download bron:
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement
 // https://downloads.khinsider.com/game-soundtracks/album/super-mario-bros 
 let bgMusic = new Audio("mainAudio.mp3");
 
+// Hier wordt de start knop ingesteld.
+let button = document.querySelector("#startButton")
+button.addEventListener("click", start)
+
+// De start functie is de basis en brengt alle functies samen en wordt gestart door de startButton.
+// In de functie start de achtergrond muziek beginnen de goomba's te lopen en daarna de input van de gebruiker.
+// Bij elke gebruiker input wordt er allemaal dingen gecontroleerd zoals de enemey collision en de box collision etc.
 function start() {
   bgMusic.play()
   goombaStart()
@@ -71,12 +75,12 @@ function start() {
     setTimer()
   }
 
-  // playMusic()
 }
 
 
 
-
+// De functies hieronder zijn de manipulaties op de onder andere css door classList en directe manipulatie op de css.
+// Deze functies zijn voor de movement inputs van de gebruiker.
 function jump() {
   // https://www.basedash.com/blog/how-to-change-an-image-src-with-javascript
   setTimeout(function () {
@@ -91,15 +95,15 @@ function jump() {
 
 function goRight() {
   locaAddRight()
-  const test = document.getElementById("mario")
-  test.style.left = loca + 'px'
+  const userInput = document.getElementById("mario")
+  userInput.style.left = loca + 'px'
   console.log("Right pressed")
 }
 
 function goLeft() {
   locaAddLeft()
-  const test = document.getElementById("mario")
-  test.style.left = loca + 'px'
+  const userInput = document.getElementById("mario")
+  userInput.style.left = loca + 'px'
   console.log("Left pressed")
 }
 
@@ -115,10 +119,12 @@ function locaAddRight() {
 var locaGetter = function () {
   console.log("Loca: " + loca)
 }
+
+// Hieronder staan de functies voor het bewegen(animatie met directe css manipulatie) van de vijanden(goomba's). 
 // Bron: https://www.w3schools.com/js/tryit.asp?filename=tryjs_dom_animate_3 
 function bomba_1_Loca() {
   clearInterval(interval_1);
-  interval_1 = setInterval(frame, 15);
+  interval_1 = setInterval(frame, 8);
   function frame() {
     if (bombaAfstand_1 == -800) {
       bombaAfstand_1 = -1520
@@ -134,7 +140,7 @@ function bomba_1_Loca() {
 
 function bomba_2_Loca() {
   clearInterval(interval_2);
-  interval_2 = setInterval(frame, 15);
+  interval_2 = setInterval(frame, 6);
   function frame() {
     if (bombaAfstand_2 == 20) {
       bombaAfstand_2 = -670
@@ -145,11 +151,15 @@ function bomba_2_Loca() {
   }
 }
 
+// Deze functie is een samenvang van alle vijanden bewegingen functies bij elkaar voor overdraagbaarheid
 function goombaStart() {
   bomba_1_Loca()
   bomba_2_Loca()
 }
 
+// Door problemen met het laten uitvoeren van alle collisionCheckers in de start functie heb ik een functie gemaakt met if/else statements.
+// Dit wordt gedaan door de mario.x(mario afstand op de x-as) onder de waarde te houden van het block die gecontroleerd moet worden.
+// Hiervoor hoeven niet alle functies te runnen.
 function boxCollisioChecker() {
   if (mario.x <= 437) {
     collisionCheckBox1()
@@ -170,20 +180,8 @@ function enemyCollisionChecker() {
   }
 }
 
-function collisionCheckBox1() {
-
-  if (mario.x > 337 + box1.offsetWidth ||
-    mario.x + mario.offsetWidth < 337 ||
-    mario.y > 611 + box1.offsetHeight ||
-    mario.y + mario.offsetHeight < 611) {
-    console.log("geen collision")
-    setTimeout(function () { mario.classList.remove("block") }, 100)
-  } else {
-    console.log('Collision')
-    mario.classList.add("block")
-  }
-}
-
+// De collisions worden gechecked met hitboxes. Als hij een collisions op de hitbox krijgt dan wordt de hoogte aangepast.
+// Dit wordt elke userInput gecontroleerd en als de hitbox niet wordt getriggerd vervalt de block class.
 function collisionCheckBox0() {
 
   if (mario.x > 537 + box0.offsetWidth ||
@@ -198,7 +196,19 @@ function collisionCheckBox0() {
   }
 }
 
+function collisionCheckBox1() {
 
+  if (mario.x > 337 + box1.offsetWidth ||
+    mario.x + mario.offsetWidth < 337 ||
+    mario.y > 611 + box1.offsetHeight ||
+    mario.y + mario.offsetHeight < 611) {
+    console.log("geen collision")
+    setTimeout(function () { mario.classList.remove("block") }, 100)
+  } else {
+    console.log('Collision')
+    mario.classList.add("block")
+  }
+}
 
 function collisionCheckBox3() {
 
@@ -212,9 +222,8 @@ function collisionCheckBox3() {
     console.log('Collision')
     mario.classList.add("block")
   }
-
-
 }
+
 function collisionCheckBox4() {
 
   if (mario.x > 1412 + box4.offsetWidth ||
@@ -228,9 +237,8 @@ function collisionCheckBox4() {
     console.log('Collision')
     mario.classList.add("block")
   }
-
-
 }
+
 
 function collisionCheckEnemy2() {
   if (mario.x > enemy2.x + enemy2.offsetWidth ||
@@ -242,8 +250,8 @@ function collisionCheckEnemy2() {
     console.log('Collision')
     loca = loca - loca
   }
-
 }
+
 function collisionCheckEnemy1() {
 
   if (mario.x > enemy1.x + enemy1.offsetWidth ||
@@ -255,9 +263,10 @@ function collisionCheckEnemy1() {
     console.log('Collision')
     loca = loca - loca
   }
-
 }
 
+// Als de gebruiker de finish bereikt(1400) veranderd de loca(locatie van mario) weer naar de orginele staat.
+// Als de score lager is dan het huidige laagste record, dan wordt het record vervangen en wordt de timer weer ge-reset.
 function finish() {
   if (loca == 1400) {
     loca = loca - loca
