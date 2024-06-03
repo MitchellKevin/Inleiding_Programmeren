@@ -11,33 +11,46 @@ const enemy2 = document.getElementById("enemy2");
 let bombaAfstand_2 = -670;
 const enemy1 = document.getElementById("enemy1");   
 let bombaAfstand_1 = -1520;
-let hs=document.querySelector("h2");
+let hs=document.querySelector("h3");
+let score=document.querySelector("h2")
 let box0=document.querySelector(".box0");
 let box1= document.querySelector(".box1");
 let box2= document.querySelector(".box2")
 let box3=document.querySelector(".box3");
 let box4=document.querySelector(".box4");
+let timer=0;
+let highestScore = 99999
 
 // while(mario.y==611){
 //   mario.classList.add("jump2")
 //   setTimeout(function(){mario.classList.remove("jump")}, 500)
 // }
 
+function getHighscore(){
+  score.textContent="Highscore: " + highestScore
+}
 function setHighscore(){
-  hs.textContent="Score: "+mario.y
+  hs.textContent="Score: "+ timer
 }
 
 let button= document.querySelector("#startButton")
 button.addEventListener("click", start)
 
-function playMusic(){
-    let audio= new Audio("mainAudio.mp3")
-    audio.button()
+// function playMusic(){
+//     let audio= new Audio("mainAudio.mp3")
+//     audio.button()
+//   }
+
+function setTimer(){
+  for (let i = 0; i < 10; i++) {
+    timer=timer+i
+    console.log(timer)
+    setInterval(500)
   }
+}
 
 function start(){
-
-      goombaStart()
+    goombaStart()
   document.body.onkeydown = function userData(e) {
       if( e.keyCode == 32 ) {
         jump();     
@@ -53,10 +66,12 @@ function start(){
       enemyCollisionChecker()
       boxCollisioChecker()
       setHighscore()
+      getHighscore()
       finish()
-
-    }      
-    playMusic()
+      setTimer()  
+    }
+        
+    // playMusic()
   }
   
   
@@ -307,5 +322,10 @@ function collisionCheckEnemy1(){
 function finish(){
   if(loca==1400){
     loca=loca-loca
+    // highestScore=timer
+    if (timer < highestScore) {
+      highestScore = timer;
+    }
+    timer=timer-timer
   }
 }

@@ -309,7 +309,13 @@ body{
   }
   .highscore{
     position: absolute;
-    top: 140px;
+    top: 130px;
+    text-align: center;
+    width: 100%;
+  }
+  .score{
+    position: absolute;
+    top: 160px;
     text-align: center;
     width: 100%;
   }
